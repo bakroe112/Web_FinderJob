@@ -1,0 +1,7 @@
+autotrain-advanced
+huggingface_hub
+docx2txt
+pdfplumber
+transformers
+
+
