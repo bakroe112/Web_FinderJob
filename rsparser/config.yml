@@ -1,0 +1,28 @@
+task: text_classification
+base_model: google-bert/bert-base-uncased    # model trên huggingface
+project_name: autotrain-resume-classifier3
+log: tensorboard
+backend: local
+
+data:
+  path: data/
+  train_split: train          # tương ứng file train.csv
+  valid_split: valid          # tương ứng file valid.csv
+  column_mapping:
+    text_column: text          # tên cột chứa nội dung
+    target_column: target      # tên cột chứa label
+
+params:
+  max_seq_length: 512
+  epochs: 10 # vòng lặp
+  batch_size: 16
+  lr: 1e-5   #learning rate
+  optimizer: adamw_torch
+  scheduler: linear
+  gradient_accumulation: 1
+  mixed_precision: fp16
+
+hub:
+  username: ${HF_USERNAME}
+  token: ${HF_TOKEN}
+  push_to_hub: false
