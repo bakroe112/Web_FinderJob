@@ -5,7 +5,7 @@ __pycache__/
 *.egg
 build/
 dist/
-
+autotrain-resume-classifier3/
 # Virtual environments
 venv/
 env/
